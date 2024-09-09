@@ -18,7 +18,7 @@ dependencies: [
 ]
 ```
 
-Normally you'll want to depend on the DgSlideButton target:
+Normally you'll want to depend on the DGLineHeight target:
 
 ```
 .product(name: "DGLineHeight", package: "DGLineHeight")
