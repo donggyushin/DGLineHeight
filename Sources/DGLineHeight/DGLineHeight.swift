@@ -16,8 +16,27 @@ struct FontWithLineHeight: ViewModifier {
     }
 }
 
+struct FontWithLineHeightPercentage: ViewModifier {
+    let font: UIFont
+    let percentage: CGFloat
+    var lineHeight: CGFloat {
+        font.lineHeight * percentage
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .font(Font(font))
+            .lineSpacing(lineHeight - font.lineHeight)
+            .padding(.vertical, (lineHeight - font.lineHeight) / 2)
+    }
+}
+
 public extension View {
     func fontWithLineHeight(font: UIFont, lineHeight: CGFloat) -> some View {
         ModifiedContent(content: self, modifier: FontWithLineHeight(font: font, lineHeight: lineHeight))
+    }
+    
+    func fontWithLineHeight(font: UIFont, percentage: CGFloat) -> some View {
+        ModifiedContent(content: self, modifier: FontWithLineHeightPercentage(font: font, percentage: percentage))
     }
 }

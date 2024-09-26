@@ -26,6 +26,13 @@ struct ContentView: View {
                         .fill(.blue)
                 }
             
+            Text("with line height percentage")
+                .fontWithLineHeight(font: .boldSystemFont(ofSize: 20), percentage: 2)
+                .background {
+                    Rectangle()
+                        .fill(.purple)
+                }
+            
         }
         .padding()
     }
