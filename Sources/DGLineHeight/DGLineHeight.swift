@@ -6,13 +6,19 @@ import UIKit
 
 struct FontWithLineHeight: ViewModifier {
     let font: UIFont
-    let lineHeight: CGFloat
+    let lineHeight: CGFloat?
 
     func body(content: Content) -> some View {
-        content
-            .font(Font(font))
-            .lineSpacing(lineHeight - font.lineHeight)
-            .padding(.vertical, (lineHeight - font.lineHeight) / 2)
+        
+        if let lineHeight {
+            content
+                .font(Font(font))
+                .lineSpacing(lineHeight - font.lineHeight)
+                .padding(.vertical, (lineHeight - font.lineHeight) / 2)
+        } else {
+            content
+                .font(Font(font))
+        }
     }
 }
 
