@@ -14,7 +14,7 @@ Once you have your Swift package set up, adding `DGLineHeight` as a dependency i
 
 ```
 dependencies: [
-   .package(url: "https://github.com/donggyushin/DGLineHeight.git", .upToNextMajor(from: "1.0.1"))
+   .package(url: "https://github.com/donggyushin/DGLineHeight.git", .upToNextMajor(from: "1.0.4"))
 ]
 ```
 
